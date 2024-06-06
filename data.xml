@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <item>
+    <id>1</id>
+    <name>John Doe</name>
+    <content>This is the content for the first item.1</content>
+  </item>
+  
+  <item>
+    <id>2</id>
+    <name>Jane Smith</name>
+    <content>This is the content for the second item.2</content>
+  </item>
+  
+  <item>
+    <id>3</id>
+    <name>Bob Johnson</name>
+    <content>This is the content for the third item.3</content>
+  </item>
+  
+  <item>
+    <id>4</id>
+    <name>Ngành kinh doanh xuất nhập khẩu khác logistics như thế nà o</name>
+    <content>This is the content for the fourth item.4</content>
+  </item>
+  
+  <item>
+    <id>HS</id>
+    <name>Hồ sơ xét tuyển Hệ Cao đẳng 2024</name>
+    <content>"Ngành Công nghệ thông tin học trong 2 năm (6 học kỳ), mức học phí được phân bổ như sau (92 tín chỉ - 495.000đ/tín chỉ):
+    - Học kỳ 1 (18 tín chỉ): 8.910.000 đ
+- Học kỳ 2 (17 tín chỉ): 8.415.000 đ
+- Học kỳ 3 (17 tín chỉ): 8.415.000 đ
+- Học kỳ 4 (16 tín chỉ): 7.920.000 đ
+- Học kỳ 5 (18 tín chỉ): 8.910.000 đ
+- Học kỳ 6 (6 tín chỉ): 2.970.000 đ
+    Tổng cộng: 45.540.000đ
+    Lưu ý: Mức học phí trên chưa bao gồm:
+    Lệ phí xét tuyển: 30.000đ
+    Lệ phí nhập học: 200.000đ
+    Đồng phục+ Cẩm nang SV: 123.000đ
+    Thẻ sinh viên đa năng 2 năm: 360.000 đ
+    BHYT + BHTN: thông báo sau"</content>
+  </item>
+</data>
