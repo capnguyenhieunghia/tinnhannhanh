@@ -63,27 +63,6 @@ fetch('data.xlsx')
                 row.style.display = shouldShow ? 'table-row' : 'none';
             }
         });
-        //màu khi tìm kiếm
-        // Add this code to the existing JavaScript
-        searchInput.addEventListener('input', () => {
-            const searchTerm = searchInput.value.toLowerCase();
-            const rows = tableBody.getElementsByTagName('tr');
-            for (let i = 0; i < rows.length; i++) {
-                const row = rows[i];
-                let shouldShow = false;
-                const cells = row.getElementsByTagName('td');
-                for (let j = 0; j < cells.length; j++) {
-                    const cell = cells[j];
-                    if (cell.textContent.toLowerCase().includes(searchTerm)) {
-                        cell.style.backgroundColor = '#ffff00'; // Set the background color of the matching cell
-                        shouldShow = true;
-                    } else {
-                        cell.style.backgroundColor = 'transparent'; // Reset the background color of non-matching cells
-                    }
-                }
-                row.style.display = shouldShow ? 'table-row' : 'none';
-            }
-        });
-        //  
+
     })
     .catch(error => console.error(error));
