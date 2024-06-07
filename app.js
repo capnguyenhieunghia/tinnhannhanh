@@ -1,3 +1,4 @@
+
 fetch('data.xml')
 .then(response => response.text())
 .then(data => {
@@ -53,3 +54,27 @@ fetch('data.xml')
 .catch(error => {
     console.error('Error fetching data:', error);
 });
+
+// login
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("loginForm");
+    const message = document.getElementById("message");
+  
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+  
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+  
+      // Thay đổi các giá trị sau để kiểm tra đăng nhập
+      const validUsername = "admin";
+      const validPassword = "123";
+  
+      if (username === validUsername && password === validPassword) {
+        // Chuyển hướng đến trang admin
+        window.location.href = "./admin/index.html";
+      } else {
+        message.textContent = "Invalid username or password.";
+      }
+    });
+  });
