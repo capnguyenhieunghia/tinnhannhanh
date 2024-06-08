@@ -33,6 +33,7 @@ th button.copy-btn {
 td{
     position: relative;
     height: 100px;
+    line-height: 30px;
 }
 .copy-btn {
     background-color: #00008B;
