@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tiền quỹ</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
 
-  <h1>Tienquy - Google Sheets</h1>
-  <table id="data-table">
+  <div style="padding: 10px; background-color: #00008B; width: 100px; text-align: center;"><a href="../index.html"
+      style="text-decoration: none; color: white;">Quay lại</a></div>
+  <button id="scrollToTopBtn">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <h1 style="text-align: center; margin: 20px 0;">Thống kê tiền quỹ</h1>
+  <div>
+    <label for="filterType">Lọc theo loại:</label>
+    <select id="filterType">
+      <option value="">Tất cả</option>
+      <option value="Thu">Thu</option>
+      <option value="Chi">Chi</option>
+    </select>
+  </div>
+  <table id="dataTable">
     <thead>
       <tr>
-        <th>id</th>
+        <th>Id</th>
         <th>Ngày</th>
         <th>Nội dung</th>
-        <th>loai chi tieu</th>
-        <th>số tiền</th>
-        <th>Tổng tiền</th>
+        <th>Loại chi tiêu</th>
+        <th>Số tiền</th>
       </tr>
     </thead>
     <tbody>
     </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="5">Quỹ hiện tại:</td>
-        <td id="current-balance"></td>
-      </tr>
-    </tfoot>
   </table>
+
+  <p>Tổng số tiền thu: <span id="totalIncome" style="color: green;"></span></p>
+  <p>Tổng số tiền chi: <span id="totalExpense" style="color: red;"></span></p>
+  <p style="color: #18215e;">Số tiền còn lại: <span id="totalBalance"></span></p>
 
   <script src="main.js"></script>
 </body>
