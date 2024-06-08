@@ -30,7 +30,10 @@ th button.copy-btn {
     display: none;
 }
 
-
+td{
+    position: relative;
+    height: 100px;
+}
 .copy-btn {
     background-color: #00008B;
     border: none;
@@ -43,6 +46,9 @@ th button.copy-btn {
     margin: 4px 2px;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .search-container {
