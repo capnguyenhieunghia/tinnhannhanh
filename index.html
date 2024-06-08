@@ -5,22 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
-<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <h3
-        style="text-align: center; margin: 20px 0; color: #00008B;box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;">
-        PHÒNG TUYỂN SINH VÀ TRUYỀN THÔNG<br> ITC</h3>
     <!-- Phần Đầu -->
+    <div class="datetime-container">
+        <marquee behavior="slide" direction="up" scrollamount="1">
+            Phòng Tuyển Sinh và Truyền Thông Trường Cao Đẳng Công Nghệ thông Tin TP.HCM
+        </marquee>
+        <span id="date-display"></span>
+        <span id="time-display"></span>
+    </div>
+    <!-- Cổng vào các trang truyền thông -->
+    <div class="cong">
+        <div class="facebook-c"><a href="https://www.facebook.com/business/tools/business-manager/"><img src="./image/icon-facebook.png" title="facebook" alt=""></a></div>
+        <div class="zalo-c"><a href="https://oa.zalo.me/home"><img src="./image/icon-zalo.png" alt=""></a></div>
+        <div class="fchat-c"><a href="https://fchat.vn/"><img src="./image/icon-fchat.png" alt=""></a></div>
+    </div>
+    <div class="hotline">
+        <p>HL01: 093.886.1080</p>
+        <p>HL02: 097.500.5356</p>
+    </div>
+    <!-- chức năng -->
     <div class="dau">
-        <div class="dau-it"><a href="./tinnhannhanh/index.html">Tin nhắn nhanh</a></div>
-        <div class="dau-it"><a href="./quanlysinhvien/index.html">Quản lý sinh viên</a></div>
-        <div class="dau-it"><a href="./thongkelichtruc/index.html">Phân công lịch trực</a></div>
-        <div class="dau-it"><a href="">Thống Kê Quỹ</a></div>
+        <div class="dau-it"><a href="./tinnhannhanh/index.html">Tin nhắn nhanh</a>
+            <div class="phu"><i class="fa-regular fa-message"></i></div>
+        </div>
+        <div class="dau-it"><a href="./quanlysinhvien/index.html">Quản lý sinh viên</a>
+            <div class="phu"><i class="fa-regular fa-user"></i></div>
+        </div>
+        <div class="dau-it"><a href="#">Phân công lịch trực</a>
+            <div class="phu"><i class="fa-regular fa-calendar"></i></div>
+        </div>
+        <div class="dau-it"><a href="#">Thống kê quỹ</a>
+            <div class="phu"><i class="fa-solid fa-chart-line"></i></div>
+        </div>
+        <div class="dau-it"><a href="#">Thông Báo</a>
+            <div class="phu"><i class="fa-regular fa-bell"></i></div>
+        </div>
     </div>
     <!-- Phần Giữa -->
-    <!-- Phần Cuối -->
+
     <script src="main.js"></script>
 </body>
 
