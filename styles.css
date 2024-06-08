@@ -13,7 +13,6 @@ body {}
   padding: 7px;
   font-size: 18px;
   text-align: center;
-  /* margin: 5px; */
   color: #18215e;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
@@ -79,7 +78,8 @@ marquee {
   font-weight: bold;
   color: transparent;
   background-clip: text;
-  background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);  margin-bottom: 10px;
+  background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);
+  margin-bottom: 10px;
   width: 200px;
   padding: 5px;
   font-size: 18px;
@@ -91,7 +91,6 @@ marquee {
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
-
   width: 100%;
   padding: 20px;
 
@@ -114,7 +113,7 @@ marquee {
   font-size: 40px;
   border-radius: 5px;
   top: 5%;
-  right: 5%;
+  left: 5%;
   color: transparent;
   background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
   background-clip: text;

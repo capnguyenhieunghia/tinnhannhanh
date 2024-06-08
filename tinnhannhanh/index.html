@@ -4,25 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tin Nhắn Nhanh</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
-    <div style="padding: 10px; background-color: #00008B; width: 100px; text-align: center;"><a
-            href="../index.html" style="text-decoration: none; color: white;">Quay lại</a></div>
-    <h1 style="text-align: center;margin: 20px 0;">Tin nhắn nhanh</h1>
-    <div class="search-container" style="margin-left: 10px;">
-        <input type="text" id="search-input" placeholder="Tìm kiếm...">
-    </div>
+
+    <div style="padding: 10px; background-color: #00008B; width: 100px; text-align: center;"><a href="../index.html"
+            style="text-decoration: none; color: white;">Quay lại</a></div>
+    <!-- quay lại đầu trang -->
+    <button id="scrollToTopBtn">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- Tin nhắn nhanh -->
+    <h2>Tin nhắn nhanh</h2>
+    <input type="text" id="search-input" placeholder="Tìm kiếm...">
     <table id="data-table">
-        <thead>
-            <tr id="table-headers"></tr>
-        </thead>
-        <tbody id="table-body"></tbody>
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+        </tbody>
     </table>
-    <script src="./main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
