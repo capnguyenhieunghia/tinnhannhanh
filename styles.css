@@ -67,23 +67,6 @@ marquee {
 }
 
 /* hotline */
-.hotline {
-  text-align: center;
-  position: fixed;
-  z-index: 100;
-}
-
-.hotline p {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  font-weight: bold;
-  color: transparent;
-  background-clip: text;
-  background-image: linear-gradient(to top, #88d3ce 0%, #6e45e2 100%);
-  margin-bottom: 10px;
-  width: 200px;
-  padding: 5px;
-  font-size: 18px;
-}
 
 /* chuc năng */
 .dau {

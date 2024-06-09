@@ -3,25 +3,3 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-iframe {
-    width: 100%;
-    height: 99vh;
-}
-
-body {
-    position: relative;
-}
-
-.quaylai {
-    position: absolute;
-    padding: 10px;
-    background-color: #00008B;
-    width: 100px;
-    text-align: center
-}
-
-.quaylai a {
-    text-decoration: none;
-    color: white;
-}
