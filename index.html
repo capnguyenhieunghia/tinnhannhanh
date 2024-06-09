@@ -1,75 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đăng nhập</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+</head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    flex-direction: column;
+  }
 
-    .login-box {
-      background-color: white;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-      text-align: center;
-    }
+  .login-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    text-align: center;
+  }
 
-    .password-input {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
+  .password-input {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
 
-    .password-input input {
-      width: 40px;
-      height: 40px;
-      font-size: 24px;
-      text-align: center;
-      margin: 0 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+  .password-input input {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
 
-    .password-input input:focus {
-      outline: none;
-      border-color: #4CAF50;
-    }
+  .password-input input:focus {
+    outline: none;
+    border-color: #4CAF50;
+  }
 
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      margin-top: 20px;
-    }
+  button {
+    background-color: #18215e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  }
 
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+  button:hover {
+    background-color: white;
+    color: #18215e;
+    transform: scale(1.0);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .logo {
+    width: 100%;
+    height: 100px;
+  }
+
+  .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>
 </head>
 
 <body>
   <div class="login-box">
-    <h2>Đăng nhập</h2>
+    <div class="logo"><img src="./image/logoITC.jpg" alt=""></div>
+    <!-- <h2>Đăng nhập</h2> -->
     <div class="password-input">
-      <input type="text" maxlength="1" pattern="\d" required class="password-input-field">
-      <input type="text" maxlength="1" pattern="\d" required class="password-input-field">
-      <input type="text" maxlength="1" pattern="\d" required class="password-input-field">
-      <input type="text" maxlength="1" pattern="\d" required class="password-input-field">
-      <input type="text" maxlength="1" pattern="\d" required class="password-input-field">
-      <input type="text" maxlength="1" pattern="\d" required class="password-input-field">
+      <input type="text" maxlength="1" pattern="\d" required class="password-input-field" oninput="handleInput(this)">
+      <input type="text" maxlength="1" pattern="\d" required class="password-input-field" oninput="handleInput(this)">
+      <input type="text" maxlength="1" pattern="\d" required class="password-input-field" oninput="handleInput(this)">
+      <input type="text" maxlength="1" pattern="\d" required class="password-input-field" oninput="handleInput(this)">
+      <input type="text" maxlength="1" pattern="\d" required class="password-input-field" oninput="handleInput(this)">
+      <input type="text" maxlength="1" pattern="\d" required class="password-input-field" oninput="handleInput(this)">
     </div>
     <button onclick="checkPassword()">Đăng nhập</button>
   </div>
@@ -77,8 +99,8 @@
   <script>
     var validPasswords = [
       "146924",
-      "987654",
-      "456789",
+      "009999",
+      "000000",
       "111111",
       "222222",
       "333333"
@@ -88,22 +110,32 @@
       "./user.html",
       "./admin/index.html",
       "./capnhatsolieu/index.html",
-      "https://www.example.com/account",
-      "https://www.example.com/projects",
+      "./thongkelichtruc/index.html",
+      "./thongbao/index.html",
       "https://www.example.com/reports"
     ];
 
     var passwordInputFields = document.querySelectorAll('.password-input-field');
+    var charCount = 0;
 
-    passwordInputFields.forEach((field, index) => {
-      field.addEventListener('input', () => {
-        if (field.value.length === 1) {
-          if (index < passwordInputFields.length - 1) {
-            passwordInputFields[index + 1].focus();
-          }
+    function handleInput(element) {
+      if (element.value.length === 1) {
+        var currentIndex = Array.from(passwordInputFields).indexOf(element);
+        if (currentIndex < passwordInputFields.length - 1) {
+          passwordInputFields[currentIndex + 1].focus();
         }
-      });
-    });
+        charCount++;
+        if (charCount === 6) {
+          checkPassword();
+        }
+      } else if (element.value.length === 0) {
+        var currentIndex = Array.from(passwordInputFields).indexOf(element);
+        if (currentIndex > 0) {
+          passwordInputFields[currentIndex - 1].focus();
+        }
+        charCount--;
+      }
+    }
 
     function checkPassword() {
       var userPassword = '';
@@ -117,6 +149,11 @@
         window.location.href = redirectUrls[redirectIndex];
       } else {
         alert("Mật khẩu không chính xác. Vui lòng thử lại.");
+        passwordInputFields.forEach(field => {
+          field.value = '';
+        });
+        passwordInputFields[0].focus();
+        charCount = 0;
       }
     }
   </script>
