@@ -103,7 +103,6 @@ marquee {
 }
 
 .dau-it a {
-
   font-size: 22px;
   font-weight: bold;
   text-decoration: none;
@@ -125,4 +124,11 @@ marquee {
 /* Giữa */
 .giua {
   height: 100vh;
+}
+
+/* mobile */
+@media only screen and (max-width: 600px) {
+  .datetime-container{
+    display: none;
+  }
 }
