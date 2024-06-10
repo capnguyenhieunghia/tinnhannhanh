@@ -1,28 +1,92 @@
-function submitData() {
-    var id = document.getElementById("id").value;
-    var name = document.getElementById("name").value;
-    var phone = document.getElementById("phone").value;
-  
-    var formData = new FormData();
-    formData.append('id', id);
-    formData.append('name', name);
-    formData.append('phone', phone);
-  
-    fetch('/save-to-excel', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        console.log('Dữ liệu đã được lưu vào file data.xlsx');
-        alert('Dữ liệu đã được lưu thành công!');
-      } else {
-        console.error('Có lỗi xảy ra khi lưu dữ liệu.');
-        alert('Có lỗi xảy ra khi lưu dữ liệu.');
+fetch('https://docs.google.com/spreadsheets/d/1StDAeGsPGsz6g94QAAT4MkxNGJib_-77KZT3lmrSYgo/export?format=csv')
+.then(response => response.text())
+.then(data => {
+  const rows = data.trim().split('\n');
+  const tableBody = document.querySelector('#shiftTable tbody');
+  const shiftCountTableBody = document.querySelector('#shiftCountTable tbody');
+  const shiftCounts = {};
+
+  rows.slice(1).forEach(row => {
+    const [name, date, day, shift, hours] = row.split(',');
+    const totalHours = calculateTotalHours(shift, hours);
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${name}</td>
+      <td>${date}</td>
+      <td>${day}</td>
+      <td>${shift}</td>
+      <td>${hours}</td>
+      <td>${totalHours.slice(0, -3)}</td>
+    `;
+    tableBody.appendChild(tr);
+
+    // Tính toán và lưu trữ tổng số buổi trực của mỗi nhân viên
+    shiftCounts[name] = (shiftCounts[name] || 0) + 1;
+  });
+
+  // Thêm dòng tổng kết vào bảng tổng số buổi trực
+  Object.entries(shiftCounts).forEach(([name, count]) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${name}</td>
+      <td>${count}</td>
+    `;
+    shiftCountTableBody.appendChild(tr);
+  });
+
+  // Thêm chức năng lọc tự động
+  const nameFilter = document.getElementById('nameFilter');
+  const startDateFilter = document.getElementById('startDateFilter');
+  const endDateFilter = document.getElementById('endDateFilter');
+
+  nameFilter.addEventListener('input', filterData);
+  startDateFilter.addEventListener('input', filterData);
+  endDateFilter.addEventListener('input', filterData);
+
+  function filterData() {
+    const name = nameFilter.value;
+    const startDate = startDateFilter.value;
+    const endDate = endDateFilter.value;
+
+    const rows = document.querySelectorAll('#shiftTable tbody tr');
+    rows.forEach(row => {
+      const rowName = row.children[0].textContent;
+      const rowDate = row.children[1].textContent;
+
+      let isVisible = true;
+
+      if (name && !rowName.includes(name)) {
+        isVisible = false;
       }
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Đã xảy ra lỗi, vui lòng thử lại sau.');
+
+      if (startDate && rowDate < startDate) {
+        isVisible = false;
+      }
+
+      if (endDate && rowDate > endDate) {
+        isVisible = false;
+      }
+
+      row.style.display = isVisible ? '' : 'none';
     });
   }
+})
+.catch(error => console.error(error));
+
+function calculateTotalHours(shift, hours) {
+const [start, end] = hours.split(' - ');
+const [startHour, startMinute] = start.split(':');
+const [endHour, endMinute] = end.split(':');
+
+const startTime = new Date();
+startTime.setHours(parseInt(startHour), parseInt(startMinute), 0, 0);
+
+const endTime = new Date();
+endTime.setHours(parseInt(endHour), parseInt(endMinute), 0, 0);
+
+const totalMilliseconds = endTime.getTime() - startTime.getTime();
+const totalHours = totalMilliseconds / (1000 * 60 * 60);
+
+return totalHours.toFixed(2);
+}
