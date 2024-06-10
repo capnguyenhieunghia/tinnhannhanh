@@ -5,7 +5,12 @@
   font-family: sans-serif;
 }
 
-body {}
+body {
+  background-image: url(https://th.bing.com/th/id/R.752595ad732530ff68cade50291ab1be?rik=dxDVWTl3FieVAw&pid=ImgRaw&r=0);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 /* Phần Đầu */
 
@@ -30,7 +35,7 @@ marquee {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #18215e;
+  background: none;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
@@ -42,7 +47,7 @@ marquee {
   top: 5%;
   left: 5%;
   color: transparent;
-  background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
   background-clip: text;
 }
 
@@ -89,7 +94,7 @@ marquee {
 
 .new {
   position: absolute;
-  background-color: red;
+  background-color: navy;
   color: aliceblue;
   width: 100px;
   padding: 5px;
