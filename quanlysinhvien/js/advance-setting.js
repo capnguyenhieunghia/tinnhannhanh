@@ -1,31 +1,31 @@
 
 /* ------ Start Global Variables Declaration ------*/
-var divAdvanceSettingIcon       = document.getElementById('divAdvanceSettingIcon');
-var divSettingBoxContainer      = document.querySelector('div.advance-setting-container div.setting-box-container');
+var divAdvanceSettingIcon = document.getElementById('divAdvanceSettingIcon');
+var divSettingBoxContainer = document.querySelector('div.advance-setting-container div.setting-box-container');
 
-var txtKeywordSearch            = document.getElementById('txtKeywordSearch');
-var btnClearText                = document.getElementById('btnClearText');
-var selGender                   = document.getElementById('selGender');
+var txtKeywordSearch = document.getElementById('txtKeywordSearch');
+var btnClearText = document.getElementById('btnClearText');
+var selGender = document.getElementById('selGender');
 
-var chkNotificationAdd          = document.getElementById('chkNotificationAdd');
-var chkNotificationUpdate       = document.getElementById('chkNotificationUpdate');
-var chkNotificationDelete       = document.getElementById('chkNotificationDelete');
-var chkOpeningIntroRun          = document.getElementById('chkOpeningIntroRun');
+var chkNotificationAdd = document.getElementById('chkNotificationAdd');
+var chkNotificationUpdate = document.getElementById('chkNotificationUpdate');
+var chkNotificationDelete = document.getElementById('chkNotificationDelete');
+var chkOpeningIntroRun = document.getElementById('chkOpeningIntroRun');
 
-var isCtrlKeyPressed            = false;
+var isCtrlKeyPressed = false;
 /* ------ End Global Variables Declaration ------*/
 
 /* ------ Start Functions Declaration ------*/
-divAdvanceSettingIcon.onclick   = function() { processAdvanceSettingBox(); }
-txtKeywordSearch.onkeypress     = function() { processOnKeyPressForKeywordSearch(event); }
-txtKeywordSearch.onkeyup        = function() { processOnKeyUpForKeywordSearch(event); }
-txtKeywordSearch.onkeydown      = function() { processOnKeyDownForKeywordSearch(event); }
-btnClearText.onclick            = function() { clearTextOfKeywordSearch(true); }
+divAdvanceSettingIcon.onclick = function () { processAdvanceSettingBox(); }
+txtKeywordSearch.onkeypress = function () { processOnKeyPressForKeywordSearch(event); }
+txtKeywordSearch.onkeyup = function () { processOnKeyUpForKeywordSearch(event); }
+txtKeywordSearch.onkeydown = function () { processOnKeyDownForKeywordSearch(event); }
+btnClearText.onclick = function () { clearTextOfKeywordSearch(true); }
 
-chkNotificationAdd.onclick      = function() { switchNotificationAdd(); }
-chkNotificationUpdate.onclick   = function() { switchNotificationUpdate(); }
-chkNotificationDelete.onclick   = function() { switchNotificationDelete(); }
-chkOpeningIntroRun.onclick      = function() { switchOpeningIntroRun(); }
+chkNotificationAdd.onclick = function () { switchNotificationAdd(); }
+chkNotificationUpdate.onclick = function () { switchNotificationUpdate(); }
+chkNotificationDelete.onclick = function () { switchNotificationDelete(); }
+chkOpeningIntroRun.onclick = function () { switchOpeningIntroRun(); }
 
 function processAdvanceSettingBox() {
     if (divAdvanceSettingIcon.className.toLowerCase() !== 'transformed-menu') {
@@ -47,7 +47,7 @@ function hideAdvanceSettingBox() {
     divSettingBoxContainer.classList.remove('visible-setting-box-container');
     divSettingBoxContainer.classList.toggle('hidden-setting-box-container-1');
 
-    setTimeout(function() {
+    setTimeout(function () {
         divSettingBoxContainer.classList.toggle('hidden-setting-box-container-2');
         divAdvanceSettingIcon.classList.toggle('transformed-menu');
     }, 500);
@@ -212,15 +212,15 @@ function initializeNotificationDelete() {
 }
 
 function initializeSettingsWhenException(exceptionMessage) {
-    chkNotificationAdd.checked      = false;
-    chkNotificationUpdate.checked   = false;
-    chkNotificationDelete.checked   = false;
-    chkOpeningIntroRun.checked      = false;
+    chkNotificationAdd.checked = false;
+    chkNotificationUpdate.checked = false;
+    chkNotificationDelete.checked = false;
+    chkOpeningIntroRun.checked = false;
 
-    chkNotificationAdd.onclick      = function() { switchSettingsWhenException(event, exceptionMessage); }
-    chkNotificationUpdate.onclick   = function() { switchSettingsWhenException(event, exceptionMessage); }
-    chkNotificationDelete.onclick   = function() { switchSettingsWhenException(event, exceptionMessage); }
-    chkOpeningIntroRun.onclick      = function() { switchSettingsWhenException(event, exceptionMessage); }
+    chkNotificationAdd.onclick = function () { switchSettingsWhenException(event, exceptionMessage); }
+    chkNotificationUpdate.onclick = function () { switchSettingsWhenException(event, exceptionMessage); }
+    chkNotificationDelete.onclick = function () { switchSettingsWhenException(event, exceptionMessage); }
+    chkOpeningIntroRun.onclick = function () { switchSettingsWhenException(event, exceptionMessage); }
 }
 
 function switchSettingsWhenException(event, exceptionMessage) {

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Nhập dữ liệu vào Google Sheets</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type=text] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Nhập dữ liệu vào Google Sheets</h2>
+    <form id="data-form">
+      <label for="name">Tên:</label>
+      <input type="text" id="name" name="name" placeholder="Nhập tên" required>
+
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" placeholder="Nhập email" required>
+
+      <label for="phone">Số điện thoại:</label>
+      <input type="text" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+
+      <button type="submit">Gửi dữ liệu</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('data-form');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+
+      const data = {
+        name: name,
+        email: email,
+        phone: phone
+      };
+
+      fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: 'John Doe',
+          email: 'john.doe@example.com',
+          phone: '1234567890'
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Data submitted successfully!', data);
+        })
+        .catch(error => {
+          console.error('Error submitting data:', error);
+        });
+    });
+  </script>
+</body>
+
+</html>

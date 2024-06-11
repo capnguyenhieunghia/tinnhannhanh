@@ -6,7 +6,7 @@
 }
 
 body {
-    padding: 10px;
+    padding: 5px;
 }
 
 table {
@@ -24,7 +24,6 @@ td {
     border-left: 1.5px solid #ddd;
     border-right: 1.5px solid #ddd;
     border-top: 1.5px solid #ddd;
-    margin-bottom: 20px;
 
 
 }
@@ -45,7 +44,7 @@ td {
 }
 
 .copy-btn {
-    background-color: #00008B;
+    background: #00008B;
     border: none;
     color: white;
     padding: 5px 10px;
@@ -66,9 +65,11 @@ td {
 }
 
 
-h2 {
+h1 {
     text-align: center;
-    margin: 20px;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    color: transparent;
+    background-clip: text;
 }
 
 #search-input {

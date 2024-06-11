@@ -58,8 +58,7 @@ marquee {
   color: white;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -101,4 +100,19 @@ marquee {
   text-align: center;
   top: 0;
   right: 0;
+}
+
+/* web */
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .dau-it a {
+    color: navy;
+  }
 }
