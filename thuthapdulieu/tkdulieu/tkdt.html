@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thống kê dân tộc</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Thống kê dân tộc</h1>
+  <table id="ethnic-table">
+    <tr>
+      <th>Dân tộc</th>
+      <th>Số lượng</th>
+    </tr>
+  </table>
+
+  <script>
+    // Fetch data from the Google Sheet
+    fetch('https://docs.google.com/spreadsheets/d/1-ww__BSRX6a-Lq38sNaVSxnZJVph_1fgUyJz70FUQmI/export?format=csv')
+      .then(response => response.text())
+      .then(data => {
+        // Parse the CSV data
+        const rows = data.trim().split('\n');
+        const ethnicCounts = {};
+
+        // Count the number of students for each ethnicity
+        for (let i = 1; i < rows.length; i++) {
+          const columns = rows[i].split(',');
+          const ethnicity = columns[6];
+          if (ethnicCounts[ethnicity]) {
+            ethnicCounts[ethnicity]++;
+          } else {
+            ethnicCounts[ethnicity] = 1;
+          }
+        }
+
+        // Display the statistics in the table
+        const table = document.getElementById('ethnic-table');
+        for (const ethnicity in ethnicCounts) {
+          const row = document.createElement('tr');
+          const ethnicityCell = document.createElement('td');
+          ethnicityCell.textContent = ethnicity;
+          const countCell = document.createElement('td');
+          countCell.textContent = ethnicCounts[ethnicity];
+          row.appendChild(ethnicityCell);
+          row.appendChild(countCell);
+          table.appendChild(row);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  </script>
+</body>
+</html>
