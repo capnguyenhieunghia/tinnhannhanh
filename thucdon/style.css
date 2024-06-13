@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    height: 400px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+th,
+td {
+    padding: 8px;
+    border: solid black 1.5px;
+    font-size: 16px;
+    text-align: center;
+    overflow: auto;
+    width: 50px;
+}
+
+#last-updated {
+    margin: 20px 0;
+}

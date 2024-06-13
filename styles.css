@@ -5,8 +5,22 @@
   font-family: sans-serif;
 }
 
-body {
-  background-image: url(./image/bg.jpg);
+.morning-background {
+  background-image: url(./image/bgsang.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.afternoon-background {
+  background-image: url(./image/bgchieu.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.evening-background {
+  background-image: url(./image/bgtoi.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -76,8 +90,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .dau-it a {
@@ -157,7 +170,7 @@ body {
 
 @media only screen and (max-width: 600px) {
   body {
-    background-image: none;
+    /* background-image: none; */
   }
 
   .dau-it a {
