@@ -12,72 +12,27 @@ body {
   background-size: cover;
 }
 
-/* Phần Đầu */
-
-marquee {
-  text-align: center;
-}
-
-/* chuc năng */
-.dau {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  width: 100%;
-  padding: 20px;
-}
-
-.dau-it {
-  position: relative;
-  width: 400px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-
-.phu {
-  position: absolute;
-  font-size: 40px;
-  border-radius: 5px;
-  top: 5%;
-  left: 5%;
-  color: transparent;
-  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
-  background-clip: text;
-}
-
-.dau-it a {
-  font-size: 22px;
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  transition: all 0.3s ease-in-out;
-}
-
-.dau-it a:hover {
-  background-color: white;
-  color: navy;
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Giữa */
-.giua {
-  height: 100vh;
-}
-
+/* logo */
 .logo {
   width: 100%;
   display: flex;
   justify-content: center;
+
+}
+
+.logo {
+  transform: translateY(-100%);
+  animation: logo 5s forwards;
+}
+
+@keyframes logo {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
 
 .lg {
@@ -100,16 +55,109 @@ marquee {
   text-align: center;
   top: 0;
   right: 0;
+  font-size: 14px;
+}
+
+/* chuc năng */
+.dau {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+}
+
+.dau-it {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
+
+.dau-it a {
+  font-size: 22px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  transition: all 0.3s ease-in-out;
+}
+
+.dau-it a:hover {
+  background-color: white;
+  color: navy;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.phu {
+  position: absolute;
+  font-size: 40px;
+  border-radius: 5px;
+  top: 5%;
+  left: 5%;
+  color: transparent;
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  background-clip: text;
+}
+
+.phu {
+  transform: translateY(100%);
+  animation: phu 5s forwards;
+}
+
+@keyframes phu {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* thoi gian */
+#greeting {
+  position: absolute;
+  top: 15%;
+  left: 0%;
+  font-size: 20px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  text-align: left;
+  padding: 10px;
+  background-color: navy;
+
+}
+
+#greeting {
+  transform: translateX(-100%);
+  animation: greeting 6s forwards;
+}
+
+@keyframes greeting {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 /* web */
 
 @media only screen and (max-width: 600px) {
   body {
-    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-image: none;
   }
 
   .dau-it a {

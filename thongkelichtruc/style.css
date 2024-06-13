@@ -26,9 +26,11 @@ h1 {
   text-align: center;
   margin: 20px 0;
 }
-iframe{
+
+iframe {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
+
 .filter-container {
   display: flex;
   justify-content: center;
@@ -46,6 +48,19 @@ iframe{
   border: none;
 }
 
+#shiftTable tbody {
+  display: block;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#shiftTable thead,
+#shiftTable tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
 .filter-container label {
   font-size: 17px;
   margin-bottom: 10px;
@@ -56,6 +71,7 @@ iframe{
   display: flex;
   flex-direction: column;
 }
+
 /* quay lại đầu trang */
 #scrollToTopBtn {
   display: none;

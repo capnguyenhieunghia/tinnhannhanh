@@ -9,7 +9,12 @@
 </head>
 
 <body>
-    <input type="text" id="searchInput" placeholder="Search by name, phone, or CCCD">
+    <div style="padding: 10px; background-color: #00008B; width: 100px; text-align: center;"><a
+            href="../index.html" style="text-decoration: none; color: white; ">Quay lại</a></div>
+    <div><a href="./themdl.html"
+            style="text-decoration: none; padding: 10px; background-color: navy; position: absolute; right: 0; color: white;">Thêm, xóa, sửa dữ
+            liệu</a></div>
+    <div class="timkiem"><input type="text" id="searchInput" placeholder="Search by name, phone, or CCCD"></div>
     <table id="data-table">
         <thead>
             <tr>
@@ -43,10 +48,13 @@
         </thead>
         <tbody id="statistics-rows"></tbody>
     </table>
-    <div class="tk1"><iframe src="./tktinh.html" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%"
-            width="100%"></iframe></div>
-    <div class="tk2"><iframe src="./tkdt.html" frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%"
-            width="100%"></iframe></div>
+    <!--  -->
+    <div class="tk1"><iframe src="./tktinh.html" frameborder="0" style="overflow:hidden;height:100%;width:100%"
+            height="100%" width="100%"></iframe></div>
+    <!--  -->
+    <div class="tk2"><iframe src="./tkdt.html" frameborder="0" style="overflow:hidden;height:100%;width:100%"
+            height="100%" width="100%"></iframe></div>
+    <!--  -->
     <script>
         const GOOGLE_SHEETS_URL = 'https://docs.google.com/spreadsheets/d/1-ww__BSRX6a-Lq38sNaVSxnZJVph_1fgUyJz70FUQmI/export?format=csv';
         let allData = [];
