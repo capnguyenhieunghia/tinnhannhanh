@@ -16,17 +16,7 @@ table {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
-#data-table tbody {
-    display: block;
-    max-height: 550px;
-    overflow-y: auto;
-}
 
-#data-table tbody tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-}
 
 th,
 td {
