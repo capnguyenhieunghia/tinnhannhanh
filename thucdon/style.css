@@ -6,6 +6,11 @@
 
 body {
     font-family: Arial, sans-serif;
+    background-image: url(./bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 table {
@@ -13,6 +18,10 @@ table {
     border-collapse: collapse;
     height: 400px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    background-image: url(./bgtable.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 th,
@@ -23,6 +32,8 @@ td {
     text-align: center;
     overflow: auto;
     width: 50px;
+    color: white;
+    font-weight: bold;
 }
 
 #last-updated {

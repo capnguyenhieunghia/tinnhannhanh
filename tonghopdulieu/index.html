@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Thống kê dữ liệu</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table tbody {
+      display: block;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    table thead,
+    table tbody tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    #result-table {
+      margin-top: 20px;
+    }
+
+    #filter-select {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+    <a href="https://docs.google.com/spreadsheets/d/1HgTPl0UsHG_0hflItQRJyJABEzVZ-mnr9oxIzV5MP0E/edit?usp=sharing">Quản lý</a>
+  <h1>Thống kê dữ liệu</h1>
+  <label for="stt-filter">Lọc theo khoảng STT:</label>
+  <input type="text" id="stt-filter" placeholder="Từ - Đến">
+  <script>
+    const sttFilterInput = document.getElementById('stt-filter');
+
+    sttFilterInput.addEventListener('input', () => {
+      const sttRange = sttFilterInput.value.split('-');
+      const fromSTT = parseInt(sttRange[0].trim()) || 1;
+      const toSTT = parseInt(sttRange[1].trim()) || Infinity;
+
+      const rows = document.querySelectorAll('#data-table tbody tr');
+
+      rows.forEach((row, index) => {
+        const stt = parseInt(row.children[0].textContent);
+        if (stt >= fromSTT && stt <= toSTT) {
+          row.style.display = 'table-row';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  </script>
+  <h2>Lọc theo "Kết quả tư vấn điện thoại"</h2>
+  <select id="filter-select">
+    <option value="">Tất cả</option>
+  </select>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>STT</th>
+        <th>Lớp học</th>
+        <th>Họ và tên</th>
+        <th>Giới tính</th>
+        <th>SĐT</th>
+        <th>Trường - Tỉnh</th>
+        <th>Nghề</th>
+        <th>Kết quả tư vấn điện thoại</th>
+        <th>Nhân sự tư vấn</th>
+        <th>Ngày tư vấn</th>
+      </tr>
+    </thead>
+    <tbody style="">
+    </tbody>
+  </table>
+
+  <h2>Thống kê kết quả tư vấn điện thoại</h2>
+  <table id="result-table">
+    <thead>
+      <tr>
+        <th>Kết quả tư vấn</th>
+        <th>Số lượng</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    fetch('https://docs.google.com/spreadsheets/d/1HgTPl0UsHG_0hflItQRJyJABEzVZ-mnr9oxIzV5MP0E/export?format=csv')
+      .then(response => response.text())
+      .then(data => {
+        const rows = data.trim().split('\n');
+        const tableBody = document.querySelector('#data-table tbody');
+        const resultTableBody = document.querySelector('#result-table tbody');
+        const filterSelect = document.querySelector('#filter-select');
+
+        // Tạo một object để lưu trữ số lượng của từng kết quả tư vấn
+        const resultCounts = {};
+
+        // Tạo các tùy chọn trong dropdown filter
+        const uniqueResults = new Set();
+
+        rows.forEach((row, index) => {
+          if (index > 0) {
+            const cells = row.split(',');
+            const tr = document.createElement('tr');
+            const resultCell = cells[7]; // Cột "Kết quả tư vấn điện thoại"
+
+            cells.forEach(cell => {
+              const td = document.createElement('td');
+              td.textContent = cell.trim();
+              tr.appendChild(td);
+            });
+
+            tableBody.appendChild(tr);
+
+            // Cập nhật số lượng của từng kết quả tư vấn
+            if (resultCounts[resultCell]) {
+              resultCounts[resultCell]++;
+            } else {
+              resultCounts[resultCell] = 1;
+              uniqueResults.add(resultCell);
+            }
+          }
+        });
+
+        // Hiển thị các tùy chọn trong dropdown filter
+        uniqueResults.forEach(result => {
+          const option = document.createElement('option');
+          option.value = result;
+          option.textContent = result;
+          filterSelect.appendChild(option);
+        });
+
+        // Hiển thị thống kê kết quả tư vấn điện thoại
+        for (const [result, count] of Object.entries(resultCounts)) {
+          const tr = document.createElement('tr');
+          const resultTd = document.createElement('td');
+          const countTd = document.createElement('td');
+
+          resultTd.textContent = result;
+          countTd.textContent = count;
+          tr.appendChild(resultTd);
+          tr.appendChild(countTd);
+          resultTableBody.appendChild(tr);
+        }
+
+        // Thêm sự kiện lọc dữ liệu
+        filterSelect.addEventListener('change', () => {
+          const selectedResult = filterSelect.value;
+          const rows = document.querySelectorAll('#data-table tbody tr');
+
+          rows.forEach(row => {
+            const resultCell = row.children[7].textContent;
+            if (selectedResult === '' || resultCell === selectedResult) {
+              row.style.display = 'table-row';
+            } else {
+              row.style.display = 'none';
+            }
+          });
+        });
+      })
+      .catch(error => console.error(error));
+      
+  </script>
+</body>
+
+</html>

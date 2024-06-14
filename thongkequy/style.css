@@ -19,6 +19,17 @@ select{
     height: 30px;
     /* text-align: center; */
 }
+#dataTable tbody {
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  #dataTable thead, #dataTable tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
 th,
 td {
     padding: 8px;
