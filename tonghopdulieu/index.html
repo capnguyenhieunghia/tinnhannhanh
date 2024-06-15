@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quản lý tư vấn</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
     <style>
@@ -13,16 +13,16 @@
 </head>
 
 <body>
+    <h2 style="text-align: left; background-color: navy; padding: 10px; color: white;">Tư vấn điện thoai</h2>
     <a href="./i.html">thống kê nhân sự tư vấn</a>
-    <h1 style="text-align: center; margin: 10px 0;">Tư vấn điện thoai</h1>
     <div class="loc">
         <div class="locid">
             <label for="filterById">Lọc theo ID</label><br>
-            <input type="text" id="filterById" onkeyup="filterByID()">
+            <input placeholder="Nhập ID..." type="text" id="filterById" onkeyup="filterByID()">
         </div>
         <div class="locsdt">
             <label for="filterByPhone">Lọc theo SĐT</label><br>
-            <input type="text" id="filterByPhone" onkeyup="filterByPhone()">
+            <input placeholder="Nhập SĐT..." type="text" id="filterByPhone" onkeyup="filterByPhone()">
         </div>
         <div class="lockqtv">
             <label for="filterByResult">Kết quả tư vấn điện thoại</label><br>
@@ -41,7 +41,7 @@
                 <th>SĐT</th>
                 <th>SĐT 2</th>
                 <th>Email</th>
-                <th>Trường - Tỉnh</th>
+                <th>Trường Tỉnh</th>
                 <th>Đoàn</th>
                 <th>Ngày ĐK online</th>
                 <th>Kết quả tư vấn điện thoại</th>
