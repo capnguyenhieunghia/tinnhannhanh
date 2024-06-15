@@ -85,10 +85,7 @@ select {
 }
 
 ul {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+padding: 10px;
   margin-bottom: 20px;
   width: 100%;
   height: 300px;
