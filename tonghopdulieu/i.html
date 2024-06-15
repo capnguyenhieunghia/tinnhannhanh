@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Thống kê Nhân sự tư vấn</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #statistics-container {
+            margin-top: 20px;
+        }
+
+        #statistics-container h2 {
+            margin-bottom: 10px;
+        }
+
+        #statistics-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #statistics-container li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <h1>Thống kê Nhân sự tư vấn</h1>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>Nhân sự tư vấn</th>
+                <th>Số lượng tư vấn</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div id="statistics-container">
+        <h2>Thống kê Nhân sự tư vấn</h2>
+        <ul id="statistics-list"></ul>
+    </div>
+    
+
+    <script>
+        fetch('https://docs.google.com/spreadsheets/d/1CWD5MdGeKRkPm20RfvCL0wAcXSQsU7gzex07a0kNrOE/export?format=csv')
+            .then(response => response.text())
+            .then(data => {
+                const rows = data.split('\n').slice(1); // skip the header row
+                const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
+                const statisticsList = document.getElementById('statistics-list');
+
+                // Tạo một object để lưu trữ kết quả thống kê
+                const statistics = {};
+
+                rows.forEach(row => {
+                    const cells = row.split(',');
+                    const counselor = cells[10]; // Nhân sự tư vấn
+
+                    if (statistics[counselor]) {
+                        statistics[counselor]++;
+                    } else {
+                        statistics[counselor] = 1;
+                    }
+                });
+
+                // Hiển thị thống kê
+                Object.entries(statistics).forEach(([counselor, count]) => {
+                    const tr = document.createElement('tr');
+                    const tdCounselor = document.createElement('td');
+                    const tdCount = document.createElement('td');
+
+                    tdCounselor.textContent = counselor;
+                    tdCount.textContent = count;
+
+                    tr.appendChild(tdCounselor);
+                    tr.appendChild(tdCount);
+                    tableBody.appendChild(tr);
+
+                    const li = document.createElement('li');
+                    li.textContent = `${counselor}: ${count}`;
+                    statisticsList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+
+</html>

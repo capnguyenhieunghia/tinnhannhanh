@@ -1,51 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Tư vấn điện thoai</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
 
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-
-        #statistics-container {
-            margin-top: 20px;
-        }
-
-        #statistics-container h2 {
-            margin-bottom: 10px;
-        }
-
-        #statistics-container ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        #statistics-container li {
-            margin-bottom: 5px;
-        }
     </style>
 </head>
 
 <body>
-    <h1>Tư vấn điện thoai</h1>
-    <label for="filterByResult">Lọc theo Kết quả tư vấn điện thoại:</label>
-    <select id="filterByResult" onchange="filterByResult()">
-        <option value="">Tất cả</option>
-    </select>
+    <a href="./i.html">thống kê nhân sự tư vấn</a>
+    <h1 style="text-align: center; margin: 10px 0;">Tư vấn điện thoai</h1>
+    <div class="loc">
+        <div class="locid">
+            <label for="filterById">Lọc theo ID</label><br>
+            <input type="text" id="filterById" onkeyup="filterByID()">
+        </div>
+        <div class="locsdt">
+            <label for="filterByPhone">Lọc theo SĐT</label><br>
+            <input type="text" id="filterByPhone" onkeyup="filterByPhone()">
+        </div>
+        <div class="lockqtv">
+            <label for="filterByResult">Kết quả tư vấn điện thoại</label><br>
+            <select id="filterByResult" onchange="filterByResult()">
+                <option value="">Tất cả</option>
+            </select>
+        </div>
+    </div>
+    <!-- bảng dữ liệu -->
     <table id="dataTable">
         <thead>
             <tr>
@@ -68,94 +54,13 @@
         </thead>
         <tbody></tbody>
     </table>
-
+    <button id="exportToExcel">Xuất Excel</button>
+    <!-- thong ke -->
     <div id="statistics-container">
-        <h2>Thống kê Kết quả tư vấn điện thoại</h2>
+        <h2 style="text-align: center; margin: 30px 0 10px 0;">Thống kê Kết quả tư vấn điện thoại</h2>
         <ul id="statistics-list"></ul>
     </div>
-
-    <script>
-        fetch('https://docs.google.com/spreadsheets/d/1CWD5MdGeKRkPm20RfvCL0wAcXSQsU7gzex07a0kNrOE/export?format=csv')
-            .then(response => response.text())
-            .then(data => {
-                const rows = data.split('\n').slice(1); // skip the header row
-                const tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-                const statisticsList = document.getElementById('statistics-list');
-
-                // Tạo một object để lưu trữ kết quả thống kê
-                const statistics = {};
-
-                rows.forEach(row => {
-                    const cells = row.split(',');
-                    const tr = document.createElement('tr');
-
-                    cells.forEach(cell => {
-                        const td = document.createElement('td');
-                        td.textContent = cell;
-                        tr.appendChild(td);
-                    });
-
-                    tableBody.appendChild(tr);
-
-                    // Cập nhật thống kê
-                    const result = cells[9]; // Kết quả tư vấn điện thoại
-                    if (statistics[result]) {
-                        statistics[result]++;
-                    } else {
-                        statistics[result] = 1;
-                    }
-                });
-
-                // Hiển thị thống kê
-                Object.entries(statistics).forEach(([result, count]) => {
-                    const li = document.createElement('li');
-                    li.textContent = `${result}: ${count}`;
-                    statisticsList.appendChild(li);
-                });
-
-                // Thêm các tùy chọn lọc vào select
-                const uniqueResults = new Set(Object.keys(statistics));
-                const filterSelect = document.getElementById('filterByResult');
-
-                uniqueResults.forEach(result => {
-                    const option = document.createElement('option');
-                    option.value = result;
-                    option.textContent = result;
-                    filterSelect.appendChild(option);
-                });
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-
-        function filterByID() {
-            const filterValue = document.getElementById('filterById').value.toLowerCase();
-            const rows = document.querySelectorAll('#dataTable tbody tr');
-
-            rows.forEach(row => {
-                const id = row.cells[1].textContent.toLowerCase();
-                if (id.includes(filterValue)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-
-        function filterByResult() {
-            const filterValue = document.getElementById('filterByResult').value;
-            const rows = document.querySelectorAll('#dataTable tbody tr');
-
-            rows.forEach(row => {
-                const result = row.cells[9].textContent;
-                if (filterValue === '' || result === filterValue) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
