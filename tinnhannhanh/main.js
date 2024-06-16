@@ -68,3 +68,43 @@ scrollToTopBtn.addEventListener("click", function () {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 });
+const selectMessage = document.getElementById('select-message');
+
+// Lưu các tin nhắn vào danh sách select
+function populateSelectMessage() {
+    selectMessage.innerHTML = '';
+
+    // Thêm lựa chọn "Tất cả"
+    const allOption = document.createElement('option');
+    allOption.value = 'all';
+    allOption.textContent = 'Tất cả';
+    selectMessage.add(allOption);
+
+    allData.forEach(row => {
+        const option = document.createElement('option');
+        option.value = row.c[0].v;
+        option.textContent = row.c[0].v;
+        selectMessage.add(option);
+    });
+}
+
+// Hiển thị dữ liệu của tin nhắn được chọn
+selectMessage.addEventListener('change', () => {
+    if (selectMessage.value === 'all') {
+        displayData(allData);
+    } else {
+        const selectedMessage = allData.find(row => row.c[0].v === selectMessage.value);
+        displayData([selectedMessage]);
+    }
+});
+
+// Gọi hàm populateSelectMessage() khi dữ liệu đã được tải xong
+fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`)
+    .then(response => response.text())
+    .then(data => {
+        const json = JSON.parse(data.substring(47, data.length - 2));
+        allData = json.table.rows;
+        populateSelectMessage();
+        displayData(allData);
+    })
+    .catch(error => console.error(error));

@@ -63,13 +63,18 @@ input {
   border: solid 1px;
 }
 
-a {
+.l {
   text-decoration: none;
   padding: 10px;
   background-color: navy;
   color: white;
   position: absolute;
   top: 10%;
+  right: 0;
+}
+a{
+  color: white;
+  text-decoration: none;
 }
 
 select {
@@ -89,4 +94,9 @@ ul {
   font-size: 20px;
   list-style: none;
   line-height: 30px;
+}
+@media only screen and (max-width: 600px) {
+  *{
+    display: none;
+  }
 }
