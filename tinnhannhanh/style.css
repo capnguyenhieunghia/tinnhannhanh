@@ -10,13 +10,12 @@ body {
 }
 
 table {
-    width: 100%;
+    width: 85%;
     border-collapse: collapse;
     font-size: 15px;
     border-radius: 5px;
+    margin: 0 auto;
 }
-
-
 
 th,
 td {
@@ -28,7 +27,6 @@ td {
     border-top: 2px solid #ddd;
     overflow-wrap: break-word;
     word-wrap: break-word;
-
 }
 
 th {
@@ -44,7 +42,6 @@ td {
     position: relative;
     height: 50px;
     line-height: 30px;
-
 }
 
 .copy-btn {
@@ -110,8 +107,18 @@ h1 {
 
 td:nth-child(1) .copy-btn {
     display: none;
+    
 }
+td:nth-child(2) {
+    /* display: none; */
+    text-align: left;
+    font-size: 13.5px;
+}
+td:nth-child(1) {
+font-size: 14px;
+text-align: center;
 
+}
 .tk input {
     width: 300px;
     padding: 5px;
@@ -132,4 +139,10 @@ td:nth-child(1) .copy-btn {
     outline: none;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     border-radius: 5px;
+
 }
+@media only screen and (max-width: 600px) {
+   table{
+    width: 100%;
+   }
+  }
