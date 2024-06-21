@@ -10,7 +10,7 @@ body {
 }
 
 table {
-    width: 85%;
+    width: 90%;
     border-collapse: collapse;
     font-size: 15px;
     border-radius: 5px;
@@ -58,7 +58,7 @@ td {
     position: absolute;
     border-radius: 2px;
     bottom: 0;
-    right: 0;
+    right: 0%;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
@@ -80,7 +80,7 @@ h1 {
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 55px;
+    right: 35px;
     z-index: 99;
     font-size: 18px;
     border: none;
@@ -107,18 +107,20 @@ h1 {
 
 td:nth-child(1) .copy-btn {
     display: none;
-    
+
 }
+
 td:nth-child(2) {
     /* display: none; */
     text-align: left;
     font-size: 13.5px;
 }
-td:nth-child(1) {
-font-size: 14px;
-text-align: center;
 
+td:nth-child(1) {
+    font-size: 13px;
+    text-align: center;
 }
+
 .tk input {
     width: 300px;
     padding: 5px;
@@ -141,8 +143,9 @@ text-align: center;
     border-radius: 5px;
 
 }
+
 @media only screen and (max-width: 600px) {
-   table{
-    width: 100%;
-   }
-  }
+    table {
+        width: 100%;
+    }
+}

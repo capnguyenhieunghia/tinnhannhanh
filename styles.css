@@ -5,7 +5,17 @@
   font-family: sans-serif;
 }
 
-.morning-background {
+.banner {
+  width: 100%;
+  padding: 20px;
+  background-color: navy;
+  color: white;
+  font-size: 18px;
+  text-align: left;
+  align-items: center;
+}
+
+/* .morning-background {
   background-image: url(./image/bgsang.jpg);
   background-position: center;
   background-repeat: no-repeat;
@@ -24,7 +34,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 /* logo */
 .logo {
@@ -77,30 +87,35 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  flex-direction: column;
   gap: 20px;
   width: 100%;
   padding: 20px;
+  height: 300px;
+  overflow-y: auto;
+  position: fixed;
+  bottom: 0;
 }
 
 .dau-it {
   position: relative;
-  width: 400px;
+  width: 300px;
   height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .dau-it a {
   font-size: 22px;
   font-weight: bold;
   text-decoration: none;
-  color: white;
+  color: navy;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   transition: all 0.3s ease-in-out;
 }
 
@@ -108,7 +123,7 @@
   background-color: white;
   color: navy;
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 .phu {
@@ -144,7 +159,7 @@
   left: 0%;
   font-size: 20px;
   color: white;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   text-align: left;
   padding: 10px;
   background-color: navy;
@@ -169,11 +184,13 @@
 /* web */
 
 @media only screen and (max-width: 600px) {
-  body {
-    /* background-image: none; */
+  .banner {
+    font-size: 14px;
   }
-
-  .dau-it a {
-    color: navy;
-  }
+}
+/* truy cập */
+#visits {
+  font-size: 48px;
+  font-weight: bold;
+  margin-top: 30px;
 }

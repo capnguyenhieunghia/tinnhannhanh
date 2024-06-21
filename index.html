@@ -13,15 +13,24 @@
 </head>
 
 <body>
-
-    <div class="ts">
+    <div class="banner">Phòng Tuyển Sinh và Truyền Thông trường cao đẳng Công Nghệ Thông Tin TP.HCM
+    </div>
         <!-- Phần Đầu -->
-        <div class="logo">
-            <div class="lg"><img src="./image/itc.png" alt=""></div>
-        </div>
         <p id="greeting"></p>
-        <!-- <p id="date"></p>
-    <p id="time"></p> -->
+        <div class="thongkedl"><div class="thongbao"><p><div id="visits">0</div>
+
+            <script>
+              let visitCount = 0;
+          
+              // Chức năng tăng số lượt truy cập mỗi khi trang web được load
+              function incrementVisits() {
+                visitCount++;
+                document.getElementById("visits").textContent = visitCount;
+              }
+          
+              // Gọi hàm tăng số lượt truy cập khi trang web được load
+              window.addEventListener("load", incrementVisits);
+            </script></p></div></div>
         <!-- chức năng -->
         <div class="dau">
             <div class="dau-it"><a href="./tinnhannhanh/index.html">Tin nhắn nhanh</a>
@@ -52,10 +61,7 @@
                 <div class="phu"><i class="fa-solid fa-kitchen-set"></i></div>
                 <!-- <div class="new"></div> -->
             </div>
-
         </div>
-        <!-- Phần Giữa -->
-    </div>
     <script src="main.js"></script>
 </body>
 
