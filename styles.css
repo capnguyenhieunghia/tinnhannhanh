@@ -7,7 +7,7 @@
 
 .banner {
   width: 100%;
-  padding: 20px;
+  padding: 15px;
   background-color: navy;
   color: white;
   font-size: 18px;
@@ -155,8 +155,8 @@
 /* thoi gian */
 #greeting {
   position: absolute;
-  top: 15%;
-  left: 0%;
+  top: 0%;
+  right: 0%;
   font-size: 20px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
@@ -167,17 +167,17 @@
 }
 
 #greeting {
-  transform: translateX(-100%);
-  animation: greeting 6s forwards;
+  transform: translateY(-100%);
+  animation: greeting 5s forwards;
 }
 
 @keyframes greeting {
   from {
-    transform: translateX(-100%);
+      transform: translateY(-100%);
   }
 
   to {
-    transform: translateX(0);
+      transform: translateY(0);
   }
 }
 
@@ -188,9 +188,26 @@
     font-size: 14px;
   }
 }
+
 /* truy cập */
+.thongkedl {
+  display: flex;
+  justify-content: center;
+}
+
+.truycap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 100px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  text-align: center;
+  border-radius: 5px;
+}
+
 #visits {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: bold;
   margin-top: 30px;
 }

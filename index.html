@@ -13,55 +13,59 @@
 </head>
 
 <body>
-    <div class="banner">Phòng Tuyển Sinh và Truyền Thông trường cao đẳng Công Nghệ Thông Tin TP.HCM
+    <div class="banner"><marquee behavior="" direction="" >Phòng Tuyển Sinh và Truyền Thông trường CĐ Công Nghệ Thông Tin TP.HCM</marquee>
     </div>
-        <!-- Phần Đầu -->
-        <p id="greeting"></p>
-        <div class="thongkedl"><div class="thongbao"><p><div id="visits">0</div>
-
+    <!-- Phần Đầu -->
+    <p id="greeting"></p>
+    <div class="thongkedl">
+        <div class="truycap">
+            <div id="visits">0</div>
+            <p>Tổng số truy cập</p>
             <script>
-              let visitCount = 0;
-          
-              // Chức năng tăng số lượt truy cập mỗi khi trang web được load
-              function incrementVisits() {
-                visitCount++;
-                document.getElementById("visits").textContent = visitCount;
-              }
-          
-              // Gọi hàm tăng số lượt truy cập khi trang web được load
-              window.addEventListener("load", incrementVisits);
-            </script></p></div></div>
-        <!-- chức năng -->
-        <div class="dau">
-            <div class="dau-it"><a href="./tinnhannhanh/index.html">Tin nhắn nhanh</a>
-                <div class="phu"><i class="fa-regular fa-message"></i></div>
-                <!-- <div class="new"></div> -->
-            </div>
-            <div class="dau-it"><a href="./quanlysinhvien/index.html">Quản lý sinh viên</a>
-                <div class="phu"><i class="fa-regular fa-user"></i></div>
-                <!-- <div class="new"></div> -->
-            </div>
-            <div class="dau-it"><a href="./thongkelichtruc/index.html">Thống kê lịch trực</a>
-                <div class="phu"><i class="fa-regular fa-calendar"></i></div>
-                <!-- <div class="new"></div> -->
-            </div>
-            <div class="dau-it"><a href="./thongkequy/index.html">Thống kê quỹ</a>
-                <div class="phu"><i class="fa-solid fa-money-bill"></i></div>
-                <!-- <div class="new"></div> -->
-            </div>
-            <div class="dau-it"><a href="./thuthapdulieu/index.html">Thu thập dữ liệu</a>
-                <div class="phu"><i class="fa-regular fa-bell"></i></div>
-                <div class="new">Window</div>
-            </div>
-            <div class="dau-it"><a href="./tonghopdulieu/index.html">Tổng hợp dữ liệu</a>
-                <div class="phu"><i class="fa-solid fa-phone"></i></div>
-                <div class="new">Window</div>
-            </div>
-            <div class="dau-it"><a href="./thucdon/index.html">Website thực đơn</a>
-                <div class="phu"><i class="fa-solid fa-kitchen-set"></i></div>
-                <!-- <div class="new"></div> -->
-            </div>
+                let visitCount = 0;
+
+                // Chức năng tăng số lượt truy cập mỗi khi trang web được load
+                function incrementVisits() {
+                    visitCount++;
+                    document.getElementById("visits").textContent = visitCount;
+                }
+
+                // Gọi hàm tăng số lượt truy cập khi trang web được load
+                window.addEventListener("load", incrementVisits);
+            </script>
         </div>
+    </div>
+    <!-- chức năng -->
+    <div class="dau">
+        <div class="dau-it"><a href="./tinnhannhanh/index.html">Tin nhắn nhanh</a>
+            <div class="phu"><i class="fa-regular fa-message"></i></div>
+            <!-- <div class="new"></div> -->
+        </div>
+        <div class="dau-it"><a href="./quanlysinhvien/index.html">Quản lý sinh viên</a>
+            <div class="phu"><i class="fa-regular fa-user"></i></div>
+            <!-- <div class="new"></div> -->
+        </div>
+        <div class="dau-it"><a href="./thongkelichtruc/index.html">Thống kê lịch trực</a>
+            <div class="phu"><i class="fa-regular fa-calendar"></i></div>
+            <!-- <div class="new"></div> -->
+        </div>
+        <div class="dau-it"><a href="./thongkequy/index.html">Thống kê quỹ</a>
+            <div class="phu"><i class="fa-solid fa-money-bill"></i></div>
+            <!-- <div class="new"></div> -->
+        </div>
+        <div class="dau-it"><a href="./thuthapdulieu/index.html">Thu thập dữ liệu</a>
+            <div class="phu"><i class="fa-regular fa-bell"></i></div>
+            <div class="new">Window</div>
+        </div>
+        <div class="dau-it"><a href="./tonghopdulieu/index.html">Tổng hợp dữ liệu</a>
+            <div class="phu"><i class="fa-solid fa-phone"></i></div>
+            <div class="new">Window</div>
+        </div>
+        <div class="dau-it"><a href="./thucdon/index.html">Website thực đơn</a>
+            <div class="phu"><i class="fa-solid fa-kitchen-set"></i></div>
+            <!-- <div class="new"></div> -->
+        </div>
+    </div>
     <script src="main.js"></script>
 </body>
 
