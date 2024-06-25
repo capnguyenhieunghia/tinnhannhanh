@@ -16,20 +16,36 @@ function displayData(data) {
     const tableBody = document.querySelector('#data-table tbody');
     tableBody.innerHTML = '';
 
-    data.forEach(row => {
+    if (data.length === 0) {
         const tr = document.createElement('tr');
-        row.c.forEach((cell, index) => {
-            const td = document.createElement('td');
-            td.textContent = cell?.v || '';
-            const copyBtn = document.createElement('button');
-            copyBtn.classList.add('copy-btn');
-            copyBtn.textContent = 'Copy';
-            copyBtn.onclick = () => copyToClipboard(cell?.v || '');
-            td.appendChild(copyBtn);
-            tr.appendChild(td);
-        });
+        const td = document.createElement('td');
+        td.textContent = 'Không có dữ liệu';
+        td.colSpan = 2;
+        td.style.textAlign = 'center';
+        tr.appendChild(td);
         tableBody.appendChild(tr);
-    });
+    } else {
+        data.forEach(row => {
+            const tr = document.createElement('tr');
+            row.c.forEach((cell, index) => {
+                const td = document.createElement('td');
+                const cellValue = cell?.v || '';
+                const searchTerm = searchInput.value.toLowerCase();
+                if (searchTerm && cellValue.toLowerCase().includes(searchTerm)) {
+                    td.innerHTML = cellValue.replace(new RegExp(`(${searchTerm})`, 'gi'), '<span class="highlight">$1</span>');
+                } else {
+                    td.textContent = cellValue;
+                }
+                const copyBtn = document.createElement('button');
+                copyBtn.classList.add('copy-btn');
+                copyBtn.textContent = 'Copy';
+                copyBtn.onclick = () => copyToClipboard(cellValue);
+                td.appendChild(copyBtn);
+                tr.appendChild(td);
+            });
+            tableBody.appendChild(tr);
+        });
+    }
 }
 
 const searchInput = document.getElementById('search-input');
@@ -45,14 +61,19 @@ searchInput.addEventListener('input', () => {
 
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text);
-    alert('Đã sao chép vào clipboard!');
+    showCopyNotification();
 }
 
-// quay lại đầu trang
-// Get the button
+function showCopyNotification() {
+    const notification = document.getElementById('copy-notification');
+    notification.style.opacity = '1';
+    setTimeout(() => {
+        notification.style.opacity = '0';
+    }, 2000);
+}
+
 let scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
@@ -63,18 +84,14 @@ function scrollFunction() {
     }
 }
 
-// When the user clicks on the button, scroll to the top of the document
 scrollToTopBtn.addEventListener("click", function () {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 });
 const selectMessage = document.getElementById('select-message');
 
-// Lưu các tin nhắn vào danh sách select
 function populateSelectMessage() {
     selectMessage.innerHTML = '';
-
-    // Thêm lựa chọn "Tất cả"
     const allOption = document.createElement('option');
     allOption.value = 'all';
     allOption.textContent = 'Tất cả';
@@ -88,7 +105,6 @@ function populateSelectMessage() {
     });
 }
 
-// Hiển thị dữ liệu của tin nhắn được chọn
 selectMessage.addEventListener('change', () => {
     if (selectMessage.value === 'all') {
         displayData(allData);
@@ -98,7 +114,6 @@ selectMessage.addEventListener('change', () => {
     }
 });
 
-// Gọi hàm populateSelectMessage() khi dữ liệu đã được tải xong
 fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`)
     .then(response => response.text())
     .then(data => {
@@ -108,3 +123,21 @@ fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`)
         displayData(allData);
     })
     .catch(error => console.error(error));
+    function showCopyNotification() {
+        const notification = document.getElementById('copy-notification');
+        notification.style.opacity = '1';
+      
+        // Tạo hiệu ứng pháo hoa
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      
+        setTimeout(() => {
+          notification.style.opacity = '0';
+        }, 2000);
+      }
+
+
+
