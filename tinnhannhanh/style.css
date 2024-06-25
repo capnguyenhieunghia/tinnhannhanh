@@ -15,6 +15,8 @@ td {
     border: solid black 1px;
     padding: 15px;
     font-size: 16px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 td:nth-child(1) .copy-btn {
