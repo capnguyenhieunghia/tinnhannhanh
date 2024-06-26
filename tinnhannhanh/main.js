@@ -13,7 +13,7 @@ fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`)
     .catch(error => console.error(error));
 
 function displayData(data) {
-    const tableBody = document.querySelector(' tbody');
+    const tableBody = document.querySelector('#data-table tbody');
     tableBody.innerHTML = '';
 
     if (data.length === 0) {

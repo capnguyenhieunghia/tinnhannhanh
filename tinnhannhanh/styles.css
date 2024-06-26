@@ -11,6 +11,7 @@ table {
     table-layout: fixed;
     word-wrap: break-word;
     border-collapse: collapse;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .table-container {
@@ -20,7 +21,7 @@ table {
 
 td {
     position: relative;
-    border: solid black 1px;
+    border: solid 	#404040 1px ;
     font-size: 16px;
     overflow-wrap: break-word;
     padding: 10px;
@@ -78,7 +79,7 @@ th {
 #scrollToTopBtn {
     position: fixed;
     bottom: 5%;
-    right: 3%;
+    right: 2.5%;
     padding: 12px 15px;
     color: white;
     z-index: 100;
@@ -100,7 +101,7 @@ th {
 .tk {
     width: 95%;
     display: flex;
-    gap: 30px;
+    gap: 20px;
     justify-content: left;
     margin: 0 auto;
     padding: 10px 0;
@@ -160,5 +161,6 @@ th {
 @media only screen and (max-width: 600px) {
     .tk {
         justify-content: center;
+        gap: 8px;
     }
 }
