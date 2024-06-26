@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    
+
     <h2 style=" text-align: center; padding: 10px 0; background-color: navy; color: white;">Tin nhắn nhanh</h2>
     <button id="scrollToTopBtn">
         <i class="fas fa-arrow-up"></i>
@@ -22,11 +22,12 @@
         <div class="quaylai">
             <button><a href="../index.html" style="text-decoration: none; color:black; ">Quay lại</a></button>
         </div>
-        <div><select id="select-message" title="Gợi ý tin nhắn nhanh"></select></div>
+        
         <div class="search-container">
             <input type="text" id="search-input" placeholder="Tìm kiếm..." oninput="autoCompleteSearch()">
             <div id="autocomplete-list" class="autocomplete-list"></div>
         </div>
+        <div><select id="select-message" title="Gợi ý tin nhắn nhanh"></select></div>
         <div class="ql"><button><a href="./tinnhan/index.html" style="color: black; text-decoration: none;">Quản
                     lý</a></button></div>
         <div id="suggest-list" class="suggest-list"></div>
