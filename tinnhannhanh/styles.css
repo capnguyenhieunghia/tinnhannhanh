@@ -156,10 +156,45 @@ th {
     background-color: navy;
     font-weight: bold;
     color: yellow;
-    padding: 5px;
+    padding: 2px;
     border-radius: 2px;
 }
 
+.search-container {
+    position: relative;
+}
+
+#search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+}
+
+.autocomplete-list {
+    position: absolute;
+    z-index: 99;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.autocomplete-list li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.autocomplete-list li:hover {
+    background-color: #f1f1f1;
+}
 
 @media only screen and (max-width: 600px) {
     .tk {

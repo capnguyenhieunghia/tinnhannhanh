@@ -1,0 +1,59 @@
+<style>
+    #text-container {
+  font-size: 32px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.cursor {
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+</style>
+
+<div id="text-container">
+    <span id="typed-text"></span>
+    <span class="cursor">|</span>
+  </div>
+  <script>
+    const textContainer = document.getElementById('text-container');
+const typedText = document.getElementById('typed-text');
+const cursor = document.querySelector('.cursor');
+
+const texts = ['Chào bạn!', 'Tôi là Trợ Lý Ảo.', 'Tôi có thể giúp gì bạn?'];
+let currentIndex = 0;
+let charIndex = 0;
+
+function typeText() {
+  if (charIndex < texts[currentIndex].length) {
+    typedText.textContent += texts[currentIndex].charAt(charIndex);
+    charIndex++;
+    setTimeout(typeText, 100);
+  } else {
+    cursor.style.display = 'none';
+    setTimeout(deleteText, 1000);
+  }
+}
+
+function deleteText() {
+  if (charIndex > 0) {
+    typedText.textContent = texts[currentIndex].substring(0, charIndex - 1);
+    charIndex--;
+    setTimeout(deleteText, 100);
+  } else {
+    cursor.style.display = 'inline';
+    currentIndex = (currentIndex + 1) % texts.length;
+    setTimeout(typeText, 500);
+  }
+}
+
+typeText();
+  </script>

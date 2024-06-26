@@ -140,4 +140,35 @@ function showCopyNotification() {
 }
 
 
+function autoCompleteSearch() {
+    const searchInput = document.getElementById('search-input');
+    const autocompleteList = document.getElementById('autocomplete-list');
+    autocompleteList.innerHTML = '';
 
+    if (searchInput.value.trim() === '') {
+        return;
+    }
+
+    const filteredData = allData.filter(row => {
+        const keyword = row.c[0].v.toLowerCase();
+        const searchTerm = searchInput.value.toLowerCase();
+        return keyword.includes(searchTerm);
+    });
+
+    if (filteredData.length > 0) {
+        filteredData.forEach(row => {
+            const li = document.createElement('li');
+            li.textContent = row.c[0].v;
+            li.addEventListener('click', () => {
+                searchInput.value = row.c[0].v;
+                autocompleteList.innerHTML = '';
+                displayData([row]);
+            });
+            autocompleteList.appendChild(li);
+        });
+    } else {
+        const li = document.createElement('li');
+        li.textContent = 'Không có kết quả';
+        autocompleteList.appendChild(li);
+    }
+}
