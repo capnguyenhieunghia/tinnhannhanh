@@ -13,7 +13,7 @@ fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`)
     .catch(error => console.error(error));
 
 function displayData(data) {
-    const tableBody = document.querySelector('#data-table tbody');
+    const tableBody = document.querySelector(' tbody');
     tableBody.innerHTML = '';
 
     if (data.length === 0) {
@@ -123,21 +123,21 @@ fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`)
         displayData(allData);
     })
     .catch(error => console.error(error));
-    function showCopyNotification() {
-        const notification = document.getElementById('copy-notification');
-        notification.style.opacity = '1';
-      
-        // Tạo hiệu ứng pháo hoa
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: { y: 0.6 }
-        });
-      
-        setTimeout(() => {
-          notification.style.opacity = '0';
-        }, 2000);
-      }
+function showCopyNotification() {
+    const notification = document.getElementById('copy-notification');
+    notification.style.opacity = '1';
+
+    // Tạo hiệu ứng pháo hoa
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+
+    setTimeout(() => {
+        notification.style.opacity = '0';
+    }, 2000);
+}
 
 
 

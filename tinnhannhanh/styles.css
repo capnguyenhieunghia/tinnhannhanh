@@ -6,28 +6,33 @@
 }
 
 table {
-    border-collapse: collapse;
     width: 95%;
     margin: 0 auto;
+    table-layout: fixed;
+    word-wrap: break-word;
+    border-collapse: collapse;
+}
+
+.table-container {
+    overflow-x: auto;
+    overflow-y: auto;
 }
 
 td {
-    max-width: 300px;
     position: relative;
     border: solid black 1px;
     font-size: 16px;
-    word-wrap: break-word;
     overflow-wrap: break-word;
-    padding: 10px 5px;
+    padding: 10px;
 }
 
 td:nth-child(1) {
-    text-align: center;
+    text-align: left;
+    color: navy;
 }
 
 td:nth-child(2) {
     text-align: left;
-
 }
 
 td:nth-child(1) .copy-btn {
@@ -51,7 +56,6 @@ td:nth-child(2) .copy-btn:hover {
 th {
     text-align: center;
     border: solid black 1px;
-    font-size: 18px;
     background-color: navy;
     color: white;
     height: 40px;
