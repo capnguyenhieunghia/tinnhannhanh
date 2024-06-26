@@ -21,7 +21,7 @@ table {
 
 td {
     position: relative;
-    border: solid 	#404040 1px ;
+    border: solid #404040 1px;
     font-size: 16px;
     overflow-wrap: break-word;
     padding: 10px;
@@ -153,14 +153,19 @@ th {
 }
 
 .highlight {
-    background-color: yellow;
+    background-color: navy;
     font-weight: bold;
-    color: navy;
+    color: yellow;
 }
+
 
 @media only screen and (max-width: 600px) {
     .tk {
         justify-content: center;
-        gap: 8px;
+
+    }
+
+    .ql {
+        display: none;
     }
 }
