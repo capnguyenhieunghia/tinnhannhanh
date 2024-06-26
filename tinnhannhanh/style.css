@@ -7,16 +7,27 @@
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
+    margin: 0 auto;
 }
 
 td {
+    max-width: 300px;
     position: relative;
     border: solid black 1px;
     font-size: 16px;
     word-wrap: break-word;
     overflow-wrap: break-word;
     padding: 10px 5px;
+}
+
+td:nth-child(1) {
+    text-align: center;
+}
+
+td:nth-child(2) {
+    text-align: left;
+
 }
 
 td:nth-child(1) .copy-btn {
@@ -43,7 +54,7 @@ th {
     font-size: 18px;
     background-color: navy;
     color: white;
-    padding: 10px 0;
+    height: 40px;
 }
 
 /* tb sc */
@@ -83,11 +94,12 @@ th {
 
 /* tk */
 .tk {
-    width: 100%;
+    width: 95%;
     display: flex;
     gap: 30px;
-    margin: 50px 0 0 0;
-    padding: 5px 10px;
+    justify-content: left;
+    margin: 0 auto;
+    padding: 10px 0;
     flex-wrap: wrap;
 }
 
@@ -139,4 +151,10 @@ th {
     background-color: yellow;
     font-weight: bold;
     color: navy;
+}
+
+@media only screen and (max-width: 600px) {
+    .tk {
+        justify-content: center;
+    }
 }
