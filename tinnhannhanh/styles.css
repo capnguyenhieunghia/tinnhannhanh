@@ -156,6 +156,8 @@ th {
     background-color: navy;
     font-weight: bold;
     color: yellow;
+    padding: 5px;
+    border-radius: 2px;
 }
 
 
